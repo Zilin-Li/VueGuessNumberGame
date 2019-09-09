@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+  <title>Document</title>
+</head>
+<body>
+
+	<div id ="Display">
+		<input type="button" value="Game One" @click="display1">
+		<input type="button" value="Game Two" @click="display2">
+		<input type="button" value="Game Three" @click="display3">
+		<input type="button" value="Game Four" @click="display4">
+	</div>
+
+<!-- Literation 1#-->
+  <div id="app1">
+		<div v-show="game1" >
+			<h1>Guess My Number(First Game)</h1>
+			<h4>I have a number, please guess (between 1 and 99)</h4>
+
+			<div style="background-color:pink; width:400px; height: 20px">{{result}}</div>
+
+			<input type="button" value="Play" @click="init">
+
+			<form action="#" method="post" v-on:submit.prevent="guess">
+				<input type="text" value="" v-model="guessNumber">
+				<input type="button" value="Guess" @click="guess">
+			</form>
+		</div>
+	</div>
+	<script src="myScript1.js"></script>
+
+<!-- Literation 2#-->
+	<div id ="app2">
+		<div v-show="game2" >
+			<h1>Guess My Number(Second Game)</h1>
+			<h4>I have a number, please guess (between 1 and 99)</h4>
+			<div style="background-color:lightblue; width:400px; height: 20px">{{result}}</div>
+			<input type = "button" value ="Play" @click ="resetGame">
+			<form action="#" method="post" v-on:submit.prevent="guess">
+				<input type="text" value="" v-model="guessNumber">
+				<input type="button" value="Guess" @click="guess">
+			</form>
+		</div>
+	</div>
+	<script src="myScript2.js"></script>
+
+<!--Literation 3#-->
+<div id ="app3">
+  <div v-show="game3">
+    	<h1>Guess My Number(Third Game)</h1>
+      <div style="background-color:lightgreen; width:400px; height: 20px">{{message}}</div>
+      <form action="#" method="post" v-on:submit.prevent="setNum">
+        <input type="text" name="" value="" v-model="userNumber">
+        <input type="button"  :disabled='setIsDisabled' name="" value="Set Number" @click ="setNum">
+      </form>
+      <input type="button" :disabled='guessIsDisabled' name="" value="Begin to Guess"  @click ="guess">
+      <input type="button" name="" value="Restart Game" @click ="restart">
+      <br>
+      <label for="">{{counterDisplay}}</label><br>
+      <div style="background-color:lightgreen; width:400px; height: 20px">{{computerOutput}}</div>
+      <input type="button" :disabled='isDisabled' name="" value="Try Higher" @click ="tryhigher">
+      <input type="button" :disabled='isDisabled' name="" value="Try Lower" @click ="trylower">
+      <input type="button" :disabled='isDisabled' name="" value="Correct" @click ="correct">
+  </div>
+</div>
+<script src="myScript3.js"></script>
+
+<div id ="app4">
+  <div v-show="game4">
+    	<h1>Guess My Number(Game Four)</h1>
+      <div style="background-color:lightyellow; width:400px; height: 20px">{{message}}</div>
+      <input type="button" :disabled='startButton' name="" value="Start Game"  @click ="startGame">
+      <input type="button" name="" value="Restart Game" @click ="restart"><br>
+      <input type="button" :disabled='isDisabled' name="" value="COLD"  @click ="ColdButton">
+      <input type="button" :disabled='isDisabled' name="" value="COOL"  @click ="CoolButton">
+      <input type="button" :disabled='isDisabled' name="" value="WARM"  @click ="WarmButton">
+      <input type="button" :disabled='isDisabled' name="" value="HOT"   @click ="HotButton">
+      <input type="button" :disabled='isDisabled' name="" value="CORRECT" @click = "CorrectButton">
+
+      <div style="background-color:lightgreen; width:400px; height: 20px">{{computerOutput}}</div>
+  </div>
+<script src="myScript4.js"></script>
+</div>
+</body>
+</html>
